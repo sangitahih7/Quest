@@ -9,11 +9,82 @@
     font-size: 53%;
   }
 
+  /* sangita 29.10.26 */
+.banner {
+    min-height: 920px
+  }
+
+  .bnr_cntnt {
+    top: 245px;
+    width: 39%
+  }
+
+  .bnr_cntnt h1 {
+    font-size: 87px;
+  }
+
+  .bnr_cntnt p {
+    font-size: 18px;
+  }
+
+  .cmn_hdr h2 {
+    font-size: 56px;
+  }
+
+  .chs_crd_img {
+    height: 470px;
+  }
+
+  .crew-card h3 {
+    font-size: 30px;
+  }
+
+  .why-quest {
+background-position: center;
+        height: 659px;
+  }
+
+  .why-card {
+    padding: 35px 22px;
+  }
+
+  .why-icon {
+    margin-bottom: 28px;
+    min-height: 80px;
+  }
+
+  .why-card.cmn_hdr p {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+.advntr_ppls {
+    right: -68px;
+    width: 68%;
+}
+.advntr_bx_cntn {
+    width: 45%;
+}
+
+  .connect {
+    height: auto;
+    min-height: 700px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .cmn_hdr h4 {
+    font-size: 28px;
+}
+.quest-footer-logo {
+    width: 357px;
+}
+
 }
 
 /*** ==================<<<<<>>>>>================== ***/
 
-@media (max-width: 1440px) {
+@media (max-width: 1470px) {
   .container {
     max-width: 1340px;
   }
@@ -21,6 +92,124 @@
   html {
     font-size: 47%;
   }
+  /* sangita 29.10.26 */
+   header .navbar-nav {
+    gap: 1.5rem;
+  }
+
+  .navbar-expand-lg .navbar-collapse {
+    gap: 24px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+
+  .logo_area {
+    width: 205px;
+    flex-shrink: 0;
+  }
+
+  .hdr_btn .cmn_btn.nav_btn {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  .banner {
+    min-height: 850px;
+  }
+
+  .bnr_cntnt {
+    top: 220px;
+    width: 41%;
+  }
+
+  .bnr_cntnt h1 {
+    font-size: 75px;
+  }
+
+  .bnr_btns {
+    flex-wrap: wrap;
+  }
+
+  .adventure_layout {
+    gap: 20px;
+  }
+
+  .chs_crd_img {
+    height: 420px;
+  }
+
+  .card_content {
+    left: 22px;
+    right: 18px;
+    bottom: 22px;
+  }
+
+  .discover_content {
+    gap: 35px;
+  }
+
+  .dscvr_lft {
+    width: 47%;
+  }
+
+  .dscvr_rgt {
+    width: 50%;
+  }
+
+  .quest-footer-top {
+    gap: 24px;
+  }
+.cmn_hdr h2 {
+    font-size: 48px;
+}
+.cmn_pdding {
+    padding: 77px 0;
+}
+.chs_upr_prt {
+    margin-bottom: 21px;
+}
+.cmn_hdr h4 {
+    font-size: 27px;
+}
+.why-card {
+    padding: 35px 19px;
+}
+.why-icon {
+    min-height: 94px;
+}
+.adventure .container {
+    height: 560px;
+}
+.advntr_bx_cntn {
+    width: 43%;
+}
+.advntr_ppls {
+    right: -56px;
+    width: 66%;
+}
+.quest-review-section {
+    min-height: 706px;
+}
+.quest-review-card .quest-author-details h5 {
+    font-size: 23px;
+}
+.quest-review-card .quest-review-author {
+    margin-top: 24px;
+}
+.quest-quote-icon img {
+  width: 90px;
+}
+.quest-review-card {
+    padding: 46px 50px 42px;
+}
+.ftr_dv p br {
+  display: none;
+}
+.quest-footer-logo {
+    width: 325px;
+}
 
 }
 
@@ -30,6 +219,142 @@
   .container {
     max-width: 1240px;
   }
+  /* sangita 29.10.26 */
+  .cmn_pdding {
+    padding: 65px 0;
+}
+    .banner {
+    min-height: 800px;
+  }
+
+  .bnr_cntnt {
+    top: 205px;
+    width: 43%;
+  }
+
+  .bnr_cntnt h1 {
+    font-size: 68px;
+  }
+
+  .bnr_cntnt p {
+    font-size: 17px;
+    padding-bottom: 26px;
+  }
+
+  .cmn_btn {
+    padding: 11px 19px;
+    font-size: 14px;
+  }
+
+  .chs_crd_img {
+    height: 390px;
+  }
+
+  .crew-features {
+    gap: 20px;
+  }
+
+  .crew-card h3 {
+    font-size: 25px;
+  }
+.cmn_hdr h4 {
+    font-size: 24px;
+}
+  .crew-card.cmn_hdr p,
+  .cmn_hdr p {
+    font-size: 16px;
+  }
+
+  .why-cards {
+    gap: 18px;
+  }
+
+.why-card {
+    width: 25%;
+    padding: 30px 18px;
+}
+
+  .adventure {
+    margin-top: 115px;
+  }
+
+.adventure .container {
+    height: 377px;
+}
+
+.advntr_bx_cntn {
+    width: 48%;
+    padding: 30px 57px 30px 25px;
+}
+
+.advntr_ppls {
+    width: 58%;
+    right: -34px;
+}
+
+  .life {
+    padding: 70px 0 80px;
+  }
+
+  .quest-review-section {
+    min-height: 650px;
+  }
+  .quest-review-section.is-visible{
+        background-size: cover;
+  }
+
+  .connect_dtls {
+    width: 72%;
+  }
+
+  .quest-footer-top {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr .9fr;
+    gap: 20px;
+  }
+
+  .ftr_dv h4 {
+    font-size: 22px;
+  }
+  .card_content {
+    bottom: 8px;
+        gap: 0;
+}
+.crew-card .crw_icn {
+    width: 71px;
+    height: 71px;
+}
+.why-icon {
+    width: 90px;
+}
+.why-quest {
+    height: 598px;
+}
+.quest-quote-icon img {
+    width: 75px;
+}
+.quest-review-stars svg {
+      font-size: 20px;
+}
+.quest-review-card {
+    padding: 46px 50px 30px;
+    min-height: 516px;
+}
+.connect {
+    min-height: 625px;
+}
+.quest-footer-logo {
+    width: 238px;
+}
+.cmn_hdr p, .ftr_dv li a {
+    padding-bottom: 7px;
+}
+.quest-footer.cmn_pdding {
+    padding-bottom: 18px;
+}
+.mail_inpt::placeholder{
+  font-size: 16px;
+}
+
 }
 
 /*** ==================<<<<<>>>>>================== ***/
@@ -42,6 +367,157 @@
   html {
     font-size: 42%;
   }
+  /* sangita 29.10.26 */
+.logo_area {
+    width: 180px
+  }
+
+  header .navbar-nav {
+    gap: 1.2rem
+  }
+
+  .navbar-expand-lg .navbar-collapse {
+    gap: 18px
+  }
+
+  .hdr_btn .cmn_btn.nav_btn {
+    padding: 10px 12px
+  }
+
+  .banner {
+    min-height: 760px
+  }
+
+  .bnr_cntnt {
+    top: 190px;
+    width: 46%
+  }
+
+  .bnr_cntnt .subhdr {
+         font-size: 14px;
+  }
+
+  .chs_crd_img {
+    height: 360px
+  }
+
+  .card_content h4 {
+    line-height: 1.25
+  }
+
+  .crew-watermark {
+    width: 92%;
+    bottom: 35px
+  }
+
+  .discover_card_text {
+    width: 75%
+  }
+
+  .discover-next {
+    right: 20px;
+    bottom: 20px
+  }
+
+  .why-quest {
+    min-height: 0
+  }
+
+  .why-card {
+    padding: 25px 17px
+  }
+
+ .cmn_hdr h4 {
+    font-size: 22px;
+}
+
+  .why-icon {
+    margin-bottom: 20px;
+    min-height: 65px
+  }
+
+  .why_cntnt_prt {
+    margin-top: 35px
+  }
+
+  .advntr_bx_cntn {
+    width: 50%
+  }
+
+  .advntr_bx_cntn h2 {
+    font-size: 38px
+  }
+
+  .quest-review-card {
+    max-width: 520px;
+    min-height: 0;
+    padding: 50px 40px 35px
+  }
+
+  .quest-review-section {
+    min-height: 600px
+  }
+
+  .connect {
+    min-height: 620px
+  }
+
+  .quest-footer-logo img {
+    width: 300px
+  }
+.cmn_hdr h2 {
+    font-size: 42px;
+}
+.card_content {
+    right: 0;
+}
+.crew-card .crw_icn {
+    width: 66px;
+    height: 66px;
+    margin: 0 auto 18px;
+}
+.why-icon {
+    width: 64px;
+}
+.why-cards {
+    gap: 11px;
+}
+.advntr_bx_cntn {
+    padding: 30px 93px 30px 25px;
+}
+.life_social h6 {
+    font-size: 15px;
+}
+.life_social_icons a {
+    width: 30px;
+    height: 30px;
+}
+.quest-quote-icon img {
+    width: 60px;
+}
+.quest-review-card {
+    max-width: 520px;
+    padding: 39px 33px 22px;
+}
+.quest-review-card .quest-author-details h5 {
+    font-size: 20px;
+    margin: 0;
+}
+.quest-review-card .quest-author-avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+}
+.quest-footer-logo {
+    width: 220px;
+}
+.cmn_hdr p, .ftr_dv li a {
+    font-size: 16px;
+}
+.ftr_dv li a{
+  padding-bottom: 7px;
+}
+
 
 }
 
@@ -50,38 +526,374 @@
 @media (max-width: 1199px) {
   .container {
     max-width: 100%;
+    padding: 0 15px;
   }
+  /* sangita 29.10.26 */
+  header {
+    padding: 14px 0;
+  }
+
+  .logo_area {
+    width: 170px;
+  }
+
+  .navbar-expand-lg .navbar-collapse {
+    gap: 14px;
+  }
+
+  header .navbar-nav {
+    gap: 1rem;
+  }
+
+
+  .hdr_btn .cmn_btn.nav_btn {
+    padding: 9px 10px;
+  }
+
+  .banner {
+    min-height: 720px;
+  }
+
+  .bnr_cntnt {
+    top: 175px;
+    width: 48%;
+  }
+
+
+  .bnr_btns .cmn_btn {
+    padding: 10px 14px;
+  }
+
+  .adventure_layout {
+    gap: 16px;
+  }
+
+  .adventure_card {
+    width: calc(33.333% - 11px);
+  }
+
+  .chs_crd_img {
+    height: 330px;
+  }
+
+  .card_content {
+    left: 17px;
+    right: 15px;
+    bottom: 18px
+  }
+
+  .card_content h4 {
+    font-size: 22px;
+  }
+
+  .view_btn {
+    padding: 9px 14px;
+  }
+.subhdr {
+    font-size: 14px;
+}
+  .crew-features {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 38px;
+  }
+
+  .crew-watermark {
+    width: 96%;
+    bottom: 25px;
+  }
+
+  .discover_content {
+    gap: 25px;
+  }
+
+  .dscvr_lft {
+    width: 48%;
+  }
+
+  .dscvr_rgt {
+    width: 49%;
+  }
+
+  .adventure_item {
+    min-height: 78px;
+    padding: 12px 0;
+  }
+
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .why-card {
+    width: auto;
+    min-width: 0;
+  }
+
+  .why-card.cmn_hdr p {
+    padding-bottom: 24px;
+  }
+
+  .adventure {
+    margin-top: 75px;
+  }
+
+  .adventure .container {
+    height: 470px;
+  }
+
+  .advntr_bx_cntn {
+    width: 52%;
+    left: 3%;
+  }
+
+.advntr_ppls {
+    width: 60%;
+    right: 1px;
+}
+
+  .life_cards {
+    gap: 18px;
+  }
+
+  .life_card {
+    width: calc(33.333% - 12px);
+  }
+
+  .quest-review-section {
+    min-height: 560px;
+  }
+
+  .quest-review-card {
+    max-width: 480px;
+    padding: 42px 35px 32px;
+  }
+
+  .quest-review-card .quest-review-author {
+    margin-top: 32px;
+  }
+
+  .connect_dtls {
+    width: 78%;
+  }
+
+  .mail_connect {
+    width: 100%;
+  }
+
+  .quest-footer-top {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 30px;
+  }
+
+  .quest-footer-top>:first-child {
+    grid-column: span 3;
+  }
+  .adventure {
+        margin-top: 150px;
+}
+.why-quest {
+    height: 731px;
+    background-size: cover;
+}
+.advntr_ppls.dsktp {
+  display: none;
+}
+.advntr_ppls.mbl_vrsn {
+    display: block;
+}
+.quest-review-content {
+    margin-right: 20px;
+}
+.quest-review-card {
+    max-width: 469px;
+    padding: 24px 33px 12px;
+}
+.mail_inpt {
+    padding: 11px 10px;
+}
+}
+
+
+
+/*** ==================<<<<<>>>>>================== ***/
+
+@media (max-width: 1080px) {
+
+  .mail_inpt::placeholder{
+  font-size: 16px;
+}
+.bnr_cntnt {
+    width: 52%;
+  }
+
+
+  .bnr_cntnt h1 {
+    font-size: 56px;
+  }
+
+  .chs_hdr {
+    gap: 18px
+  }
+
+  .cmn_hdr h2 {
+    line-height: 1.08
+  }
+
+  .discover_content {
+    align-items: flex-start
+  }
+
+  .discover_card_text {
+    width: 82%
+  }
+
+.discover-next {
+    right: 14px;
+    bottom: 14px;
+    width: 30px;
+}
+
+  .advntr_bx_cntn h2 {
+    font-size: 34px
+  }
+
+  .advntr_bx_cntn p {
+    font-size: 15px
+  }
+
+  .connect {
+    min-height: 560px
+  }
+  .adventure .container {
+    height: 352px;
+}
+
+
 }
 
 /*** ==================<<<<<>>>>>================== ***/
 
-@media (max-width: 1080px) {}
+@media (max-width: 1024px) {
+  .card_content h4 {
+    font-size: 21px;
+}
+.logo_area {
+    width: 150px;
+}
+.banner {
+    min-height: 690px
+  }
+
+  .bnr_cntnt {
+    top: 160px;
+    width: 54%
+  }
+
+  .bnr_cntnt h1 {
+    font-size: 49px
+  }
+
+  .bnr_cntnt p {
+    font-size: 16px
+  }
+
+  .bnr_btns {
+    gap: 12px
+  }
+
+  .adventure_card {
+    border-radius: 18px
+  }
+
+  .chs_crd_img {
+    height: 310px
+  }
+
+  .crew-section.cmn_pdding {
+    padding-bottom: 0
+  }
+
+  .crew-people {
+    margin-top: 15px
+  }
+
+  .discover_content {
+    gap: 22px
+  }
+
+  .adventure-thumb {
+    width: 88px;
+    flex-shrink: 0
+  }
+
+  .adventure-info.cmn_hdr h4 {
+    font-size: 19px
+  }
+
+  .adventure_item {
+    gap: 10px
+  }
+
+  .why-quest {
+    padding: 60px 0 70px
+  }
+
+  .why-card.cmn_hdr h4 {
+    font-size: 21px
+  }
+
+  .why-card {
+    padding: 24px 18px
+  }
+
+  .adventure .container {
+    height: 430px
+  }
+
+  .advntr_bx_cntn {
+    width: 54%
+  }
+
+.advntr_ppls {
+    width: 60%;
+}
+
+  .life_card {
+    min-height: 280px
+  }
+
+.quest-review-section {
+    min-height: 545px;
+}
+
+  .quest-review-card {
+    max-width: 440px
+  }
+
+  .connect_dtls {
+    width: 85%
+  }
+  .crew-card h3 {
+    font-size: 23px;
+}
+.cmn_pdding {
+    padding: 55px 0;
+}
+.quest-review-card {
+    padding: 24px 26px 12px;
+}
+.quest-review-card .quest-review-author {
+    margin-top: 14px;
+}
+
+
+}
 
 /*** ==================<<<<<>>>>>================== ***/
 
-@media (max-width: 1024px) {}
-
-/*** ==================<<<<<>>>>>================== ***/
-
-@media (max-width: 991px) {}
-
-/*** ==================<<<<<>>>>>================== ***/
-
-@media (max-width: 900px) {}
-
-/*** ==================<<<<<>>>>>================== ***/
-
-@media (max-width: 840px) {}
-
-/*** ==================<<<<<>>>>>================== ***/
-
-@media (max-width: 768px) {}
-
-/*** ==================<<<<<>>>>>================== ***/
-
-@media (max-width: 767px) {
-
-  /* Responsive NavBar */
+@media (max-width: 991px) {
+    /* Responsive NavBar */
 
   header .navbar {
     position: static;
@@ -107,19 +919,53 @@
     fill: #fff;
   }
 
-  header .navbar-collapse {
+header .navbar-collapse {
     position: absolute;
     left: 0;
     right: 0;
     top: 100%;
-    background: coral;
-  }
+    background: #C72720;
+    padding: 20px 10px;
+    text-align: center;
+    box-shadow: 0 16px 8px rgba(255,255,255,0.2);
+}
 
   header .navMenus {
     padding: 20px 0;
   }
+  .hdr_btn .cmn_btn.nav_btn {
+    padding: 9px 10px;
+    border: 2px solid #fff;
+}
 
   /* Responsive NavBar End*/
+  .cmn_pdding {
+    padding: 48px 0;
+}
+.card_content h4 {
+    font-size: 20px;
+}
+
+
+}
+
+/*** ==================<<<<<>>>>>================== ***/
+
+@media (max-width: 900px) {}
+
+/*** ==================<<<<<>>>>>================== ***/
+
+@media (max-width: 840px) {}
+
+/*** ==================<<<<<>>>>>================== ***/
+
+@media (max-width: 768px) {}
+
+/*** ==================<<<<<>>>>>================== ***/
+
+@media (max-width: 767px) {
+
+
 }
 
 /*** ==================<<<<<>>>>>================== ***/

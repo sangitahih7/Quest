@@ -15,7 +15,7 @@
     scroll-behavior: smooth;
     font: inherit;
     scrollbar-width: 10px;
-    scrollbar-color: #5c4229 #fff;
+    scrollbar-color: #C72720 #fff;
 }
 
 @font-face {
@@ -41,7 +41,7 @@
 
 *::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background-color: #5c4229;
+    background-color: #C72720;
     border: 2px solid #fff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -105,6 +105,7 @@ a:focus {
 }
 
 img {
+        width: 100%;
     max-width: 100%;
     display: block;
     height: auto;
@@ -222,7 +223,7 @@ p {
     padding-bottom: 10px;
     text-transform: capitalize;
 }
-.cmn_hdr p {
+.cmn_hdr p , .ftr_dv li a{
       font-family: "Mona Sans", sans-serif;
     font-size: 18px;
     color: #3F3E3E;
@@ -419,83 +420,394 @@ header .navbar-nav {
 }
 
 /* banner */
-.banner{
+
+/* .banner{
     position: relative;
+} */
+
+
+
+
+
+.logo_area{
+    width: 234px;
 }
-.bnr_cntnt {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 9%;
-    text-align: left;
-    width: 34%;
-}
-.bnr_cntnt .subhdr {
-    color: #fff;
-}
-.bnr_cntnt h1{
-    font-family: "Work Sans", sans-serif;
-    font-size: 100px;
-    line-height: 1.1;
-    font-weight: 800;
-    color: #fff;
-        padding-bottom: 15px;
-}
-.bnr_cntnt p {
-       font-family: "Mona Sans", sans-serif;
-       font-size: 20px;
-       font-weight: 400;
-       color: #fff;   
-           padding-bottom: 35px;
-}
-.bnr_btns{
-        display: flex;
-    gap: 8px;
+.logo_area a {
+    display: block;
 }
 
 /* choose */
-.chs_upr_prt{
-    margin-bottom: 24px;
+/* ================================
+   CHOOSE YOUR ADVENTURE SECTION
+================================ */
+
+.choose {
+    position: relative;
+    overflow: hidden;
 }
+
+.chs_upr_prt {
+    margin-bottom: 32px;
+}
+
 .chs_hdr {
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
+    gap: 24px;
 }
-.adventure_layout{
-        display: flex;
+
+/* Cards layout */
+.adventure_layout {
+    display: flex;
     justify-content: space-between;
+    gap: 24px;
+    align-items: stretch;
 }
-.adventure_card{
-    width: 32.5%;
+
+.adventure_card {
+    width: calc(33.333% - 16px);
     position: relative;
-    transition: 0.3s ease;
-    border: 6px solid transparent;
+    isolation: isolate;
+    border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 24px;
+    overflow: hidden;
+    background: #132b32;
+    cursor: pointer;
+
+    /* Entrance animation initial state */
+    opacity: 0;
+    transform: translateY(45px) scale(0.97);
+
+    transition:
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.5s ease,
+        box-shadow 0.5s ease,
+        opacity 0.7s ease;
 }
+
+/* Reveal cards when section enters viewport */
+.adventure_card.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.adventure_card:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.adventure_card:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+/* Image */
 .chs_crd_img {
-        border-radius: 16px;
+    height: 534px;
+    width: 100%;
+    border-radius: 23px;
     overflow: hidden;
-        height: 534px;
+    position: relative;
 }
+
+.chs_crd_img img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    transform: scale(1.001);
+    transition:
+        transform 1.2s cubic-bezier(0.2, 0.65, 0.3, 1),
+        filter 0.8s ease;
+}
+
+/* Cinematic dark overlay */
+.adventure_card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.88) 0%,
+        rgba(0, 0, 0, 0.62) 18%,
+        rgba(0, 0, 0, 0.16) 48%,
+        transparent 72%
+    );
+
+    opacity: 0.85;
+    transition: opacity 0.7s ease;
+}
+
+/* Soft light sweep */
+.adventure_card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background: linear-gradient(
+        115deg,
+        transparent 25%,
+        rgba(255, 255, 255, 0.12) 45%,
+        transparent 65%
+    );
+
+    transform: translateX(-120%);
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Card content */
 .card_content {
-        position: absolute;
-    bottom: 12px;
-    left: 5%;
-    height: 10%;
-    overflow: hidden;
-        transition: 0.3s ease;
+    position: absolute;
+    z-index: 3;
+    left: 28px;
+    right: 24px;
+    bottom: 26px;
+
+    height: auto;
+    overflow: visible;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    transform: translateY(34px);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.adventure_card:hover .card_content{
-height: 24%;
+
+/* Title */
+.card_content h4 {
+    margin: 0;
+    transform: translateY(0);
+    transition:
+        transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+        letter-spacing 0.5s ease;
 }
-.adventure_card:hover{
-    border: 6px solid #000;
+
+/* Trip button */
+.card_content .view_btn {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(18px);
+
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    color: #fff;
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0.4s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
 }
-.view_btn{
-    background-color: transparent;
-        border: 2px solid #fff;
+
+/* ================================
+   HOVER ANIMATION
+================================ */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .adventure_card:hover {
+        transform: translateY(-10px) scale(1.005);
+           border: 8px solid #000;
+        box-shadow:
+            0 24px 55px rgba(0, 0, 0, 0.2),
+            0 0 24px rgba(255, 255, 255, 0.08);
+    }
+
+    .adventure_card:hover .chs_crd_img img {
+        transform: scale(1.1);
+        filter: saturate(1.12);
+    }
+
+    .adventure_card:hover::before {
+        opacity: 1;
+    }
+
+    .adventure_card:hover::after {
+        transform: translateX(120%);
+    }
+
+    .adventure_card:hover .card_content {
+        transform: translateY(0);
+    }
+
+    .adventure_card:hover .card_content h4 {
+        letter-spacing: 0.3px;
+    }
+
+    .adventure_card:hover .view_btn {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition-delay: 0.08s;
+    }
+
+    .adventure_card:hover .view_btn:hover {
+        background: #fff;
+        color: #111;
+        border-color: #fff;
+    }
 }
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 1199px) {
+    .adventure_layout {
+        gap: 18px;
+    }
+
+    .adventure_card {
+        width: calc(33.333% - 12px);
+    }
+
+    .chs_crd_img {
+        height: 460px;
+    }
+
+    .card_content {
+        left: 20px;
+        right: 18px;
+        bottom: 22px;
+    }
+}
+
+@media (max-width: 991px) {
+    .adventure_layout {
+        gap: 16px;
+    }
+
+    .adventure_card {
+        width: calc(33.333% - 11px);
+        border-radius: 18px;
+    }
+
+    .chs_crd_img {
+        height: 380px;
+        border-radius: 17px;
+    }
+
+    .card_content {
+        left: 16px;
+        right: 14px;
+        bottom: 20px;
+        gap: 14px;
+    }
+
+    .card_content h4 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .adventure_layout {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .adventure_card {
+        width: 100%;
+        border-radius: 18px;
+    }
+
+    .adventure_card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .chs_crd_img {
+        height: 360px;
+        border-radius: 17px;
+    }
+
+    /* Keep content readable on touch devices */
+    .card_content {
+        transform: translateY(0);
+        left: 18px;
+        right: 14px;
+        bottom: 20px;
+        gap: 12px;
+    }
+
+    .card_content h4 {
+        font-size: 20px;
+    }
+
+    .card_content .view_btn {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 575px) {
+    .chs_upr_prt {
+        margin-bottom: 24px;
+    }
+
+    .chs_hdr {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .adventure_layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .adventure_card:last-child {
+        grid-column: auto;
+    }
+
+    .chs_crd_img {
+        height: 420px;
+    }
+
+    .card_content {
+        left: 22px;
+        right: 18px;
+        bottom: 24px;
+    }
+
+    .card_content h4 {
+        font-size: 23px;
+    }
+
+    .adventure_card:active .chs_crd_img img {
+        transform: scale(1.04);
+    }
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .adventure_card,
+    .chs_crd_img img,
+    .card_content,
+    .card_content h4,
+    .card_content .view_btn,
+    .adventure_card::before,
+    .adventure_card::after {
+        transition: none !important;
+        animation: none !important;
+    }
+
+    .adventure_card {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
 
 
    /* CREW SECTION */
@@ -732,7 +1044,7 @@ height: 24%;
 
 /* ---------- why section ------------ */
 
-.why-top-wave {
+/* .why-top-wave {
     position: absolute;
     top: 0;
     left: 0;
@@ -747,15 +1059,22 @@ height: 24%;
     width: 100%;
     height: 100%;
     object-fit: fill;
-}
+} */
 
 
 /* WHY QUEST SECTION */
 .why-quest {
     position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 725px;
+    background-image: url("../images/why_bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-.why-background {
+/* .why-background {
     position: absolute;
     z-index: -2;
     top: 0;
@@ -765,7 +1084,7 @@ height: 24%;
     background-image: url("../images/why_bg.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-}
+} */
 
 .why-heading {
     text-align: center;
@@ -835,12 +1154,7 @@ display: flex;
     color: #fff;
 }
 .why_cntnt_prt {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-inline: auto;
-    top: 169px;
-    width: 85%;
+    margin-top: 50px;
 }
 .why-card.cmn_hdr p {
     padding-bottom: 54px;
@@ -849,4 +1163,982 @@ display: flex;
 .why-button-wrap{
     display: flex;
     justify-content: center;
+}
+
+/* ==========================
+27.10.26
+============================== */
+
+.why-heading.cmn_hdr h2{
+    padding-top: 15px;
+}
+
+/* adventure */
+.adventure .container {
+    background: url("../images/advntr_back.png") no-repeat;
+    background-size: 100% 100%;
+    height: 612px;
+    border-radius: 25px;
+    position: relative;
+}
+.adventure {
+    margin-top: 157px;
+}
+.advntr_bx_cntn{
+        width: 47%;
+    background: #fff;
+      padding: 40px 30px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3%;
+}
+.advntr_ppls{
+    position: absolute;
+    right: -78px;
+    bottom: 0;
+}
+
+
+/* Life section */
+
+.life {
+    padding: 80px 0 90px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.life .chs_upr_prt {
+    margin-bottom: 25px;
+}
+
+.life_cards {
+display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.life_card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #222;
+    isolation: isolate;
+    cursor: pointer;
+    width: 32.5%;
+}
+
+.life_card > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.life_card:hover > img {
+    transform: scale(1.07);
+}
+ .life_overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        to bottom,
+        transparent 55%,
+        rgba(0, 0, 0, 0.08) 72%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.life_card:hover .life_overlay {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 25%,
+        rgba(0, 0, 0, 0.3) 55%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+}
+
+.life_social {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    color: #ffffff;
+    text-align: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease,
+        visibility 0.4s ease;
+
+    pointer-events: none;
+}
+
+.life_card:hover .life_social {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+.life_social h6 {
+        font-family: "Mona Sans", sans-serif;
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    line-height: 1.3;
+}
+
+.life_social_icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+}
+
+.life_social_icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.life_social_icons a:hover {
+    background: #e52d22;
+    border-color: #e52d22;
+    transform: translateY(-3px);
+}
+
+.life .chs_hdr{
+padding-top: 6px;
+}
+
+/*--------- review -----------*/
+.quest-review-section {
+    position: relative;
+    width: 100%;
+    min-height: 753px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: url("../images/review_bg.png") no-repeat;
+    background-size: 100% 100%;
+}
+
+
+.quest-review-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.quest-review-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.quest-review-card::before,
+.quest-review-card::after {
+    content: "";
+    position: absolute;
+    inset: 8px -12px -8px 12px;
+    border-radius: 14px;
+    pointer-events: none;
+}
+
+.quest-review-card .quest-review-stars {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    color: #f6b93b;
+    font-size: 23px;
+}
+
+.quest-review-card .quest-review-text {
+    margin: 0;
+    padding: 0;
+    color: #505050;
+    font-family: "Work Sans", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.quest-review-card .quest-review-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 52px;
+    padding: 0;
+}
+.quest-review-card .quest-author-avatar {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #194bad;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.quest-review-card .quest-author-details h5 {
+    margin: 0 0 5px;
+    color: #101010;
+    font-family: "Work Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+.quest-review-card .quest-google-icon {
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+}
+
+.quest-review-card .quest-google-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.quest-author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.quest-quote-icon{
+        display: flex;
+    justify-content: end;
+}
+
+.quest-review-card {
+    position: relative;
+    isolation: isolate;
+    width: 100%;
+    max-width: 568px;
+    min-height: 540px;
+    padding: 65px 50px 42px;
+    background-color: #d5d6d4 !important;
+    border-radius: 14px;
+    box-shadow: 9px 8px 0 rgba(220, 220, 220, 0.55);
+    z-index: 1;
+
+    transition: transform 0.5s ease;
+}
+
+.quest-review-card::before {
+    content: "";
+    position: absolute;
+    inset: 8px -12px -8px 12px;
+    border-radius: 14px;
+    background: #fff;
+
+    transform: translate(0, 0) rotate(-2deg);
+    transform-origin: center;
+    z-index: -1;
+    pointer-events: none;
+
+    transition:
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.75s ease;
+}
+
+.quest-review-card::after {
+    content: "";
+    position: absolute;
+    inset: 8px -12px -8px 12px;
+    border-radius: 14px;
+    background: #e2e3e1;
+
+    transform: translate(0, 0) rotate(3.2deg);
+    transform-origin: center;
+    z-index: -2;
+    pointer-events: none;
+
+    transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.quest-review-card:hover::before {
+    transform: translate(12px, -10px) rotate(-1deg);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.10);
+}
+
+.quest-review-card:hover::after {
+    transform: translate(5px, -4px) rotate(2deg);
+}
+
+.quest-review-card:hover {
+    transform: translateY(-2px);
+}
+
+/* -------- connect -------- */
+.connect {
+    background: url("../images/connect_bg.jpg") no-repeat;
+    background-size: 100% 100%;
+        height: 880px;
+}
+.connect_dtls {
+    width: 65%;
+    margin-inline: auto;
+    text-align: center;
+}
+.mail_inpt::placeholder{
+    font-family: "Mona Sans", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3F3E3E;
+    line-height: 1.5;
+    text-transform: capitalize;
+}
+.mail_connect{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 90%;
+    margin-inline: auto;
+}
+.mail_inpt{
+        padding: 13px 10px;
+    width: 80%;
+    cursor: pointer;
+        border: 1px solid rgba(0,0,0,0.3);
+}
+.mail_inpt:focus{
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.connect_dtls.cmn_hdr p{
+  padding-bottom: 20px;
+}
+
+/* ===== QUEST EXPEDITIONS FOOTER ===== */
+
+.quest-footer {
+    width: 100%;
+    background: #000;
+    color: #fff;
+}
+.quest-footer.cmn_pdding{
+    padding-bottom: 22px;
+}
+
+.quest-footer-top {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr 1fr 1fr 0.9fr;
+    gap: 35px;
+    align-items: start;
+}
+
+
+.quest-footer-logo {
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+.quest-footer-logo{
+    display: block;
+    width: 380px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.ftr_dv p,
+.ftr_dv li a {
+    color: rgba(255,255,255,0.7);
+}
+
+/* Footer Columns */
+.ftr_dv h4 {
+    font-family: "Work Sans", sans-serif;
+    margin: 5px 0 12px;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.ftr_dv ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ftr_dv ul li {
+    margin-bottom: 5px;
+}
+
+.ftr_dv p {
+    margin: 0;
+}
+
+.ftr_dv li a:hover {
+    color: #fff;
+}
+
+/* Divider */
+.quest-footer-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.7);
+    margin: 24px 0 15px;
+}
+
+/* Copyright */
+.quest-footer-bottom {
+    text-align: center;
+}
+
+.quest-footer-bottom p {
+    margin: 0;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.quest-footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.quest-footer-bottom a:hover {
+    color: #fff;
+}
+
+.quest-footer-bottom .prjctnm:hover {
+    text-decoration: underline;
+}
+
+.life.cmn_pdding{
+    padding-top: 0;
+}
+
+
+
+/* banner update for water effect */
+.bnr_cntnt {
+    position: absolute;
+    top: 279px;
+    width: 34%;
+    z-index: 2;
+}
+
+.bnr_cntnt .subhdr {
+    color: #fff;
+}
+
+.bnr_cntnt h1 {
+    font-family: "Work Sans", sans-serif;
+    font-size: 100px;
+    line-height: 1.1;
+    font-weight: 800;
+    color: #fff;
+    padding-bottom: 15px;
+}
+
+.bnr_cntnt p {
+    font-family: "Mona Sans", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    padding-bottom: 35px;
+}
+
+.bnr_btns {
+    display: flex;
+    gap: 8px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    min-height: 1060px;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.banner .bnr_bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.banner .bnr_bg > img:not(#waterMask) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+/* Water mask stays hidden */
+.banner .bnr_bg #waterMask {
+    display: none !important;
+}
+
+.banner #waterCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* -------------------- 29.10.26 ---------------------- */
+/* crew section */
+
+/* =====================================
+   QUEST CREW - UNFOLDING SECTION EFFECT
+===================================== */
+
+.crew-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.crew-heading,
+.crew-features,
+.crew-watermark,
+.crew-people {
+    visibility: visible;
+}
+
+/* Cards */
+.crew-card {
+    opacity: 1;
+    transform: none;
+}
+
+/* Rafters image stays within the section */
+.crew-people {
+    width: 100%;
+    margin: 20px 0 0;
+}
+
+.crew-people img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Avoid hover effects fighting with entrance animation */
+.crew-card .crw_icn img {
+    transition: transform 0.45s ease;
+}
+
+.crew-card:hover .crw_icn img {
+    transform: translateY(-5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .crew-section * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ------------ why-quest and adventure section ----------- */
+
+/* =========================================
+   SMOOTH VERTICAL UNFOLD REVEAL
+========================================= */
+
+.adventure {
+    position: relative;
+    z-index: 2;
+}
+
+/* ==================================
+   QUEST SECTION UNFOLD TRANSITION
+================================== */
+
+/* Keep your original layout intact */
+.why-quest,
+.adventure {
+    position: relative;
+    transform-origin: center top;
+    backface-visibility: hidden;
+}
+
+/* Preserve the existing Adventure image overlap */
+.adventure .container {
+    overflow: visible;
+}
+
+.advntr_ppls {
+    z-index: 2;
+}
+
+/* The animations are driven by scroll position */
+@media (prefers-reduced-motion: reduce) {
+    .why-quest,
+    .adventure,
+    .adventure .container {
+        transform: none !important;
+    }
+}
+
+
+/* ------------ life ----------- */
+
+/* ========================================
+   LIFE SECTION — HEADING REVEAL
+======================================== */
+
+.life .chs_upr_prt {
+    overflow: hidden;
+}
+
+.life .subhdr,
+.life .chs_hdr h2,
+.life .chs_hdr .cmn_btn {
+    opacity: 0;
+    transform: translateY(45px);
+
+    transition:
+        opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change: transform, opacity;
+}
+
+/* Heading reveal sequence */
+
+.life.life-revealed .subhdr {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.life.life-revealed .chs_hdr h2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.life.life-revealed .chs_hdr .cmn_btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+
+/* ========================================
+   LIFE CARDS — OPEN FROM CENTER
+======================================== */
+
+.life .life_card {
+    opacity: 0;
+    clip-path: inset(48% 48% 48% 48% round 12px);
+    transform: scale(0.92);
+
+    transition:
+        clip-path 1.15s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.8s ease,
+        transform 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+
+    will-change: clip-path, opacity, transform;
+}
+
+/* Expand smoothly in every direction */
+
+.life.life-revealed .life_card {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 12px);
+    transform: scale(1);
+}
+
+/* Staggered card opening */
+
+.life.life-revealed .life_card:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.life.life-revealed .life_card:nth-child(2) {
+    transition-delay: 0.35s;
+}
+
+.life.life-revealed .life_card:nth-child(3) {
+    transition-delay: 0.55s;
+}
+
+
+/* ========================================
+   IMAGE HOVER — KEEP EXISTING EFFECT
+======================================== */
+
+.life .life_card > img {
+    transition:
+        transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.life .life_card:hover > img {
+    transform: scale(1.07);
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .life .subhdr,
+    .life .chs_hdr h2,
+    .life .chs_hdr .cmn_btn,
+    .life .life_card {
+        opacity: 1;
+        transform: none;
+        clip-path: none;
+        transition: none;
+        will-change: auto;
+    }
+}
+
+/* ------------ review section ------------ */
+
+/* =====================================
+   CINEMATIC REVIEW SECTION REVEAL
+===================================== */
+
+.quest-review-section {
+    background-position: center;
+    background-size: 108% 108%;
+    transition: background-size 2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Card starts small and rises into view */
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card {
+    opacity: 0;
+    transform: translate3d(0, 65px, 0) scale(0.88);
+    filter: blur(8px);
+}
+
+/* Layered paper starts slightly separated */
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card::before {
+    transform: translate(-12px, 12px) rotate(-7deg) scale(0.96);
+}
+
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card::after {
+    transform: translate(12px, 16px) rotate(7deg) scale(0.94);
+}
+
+/* Main cinematic reveal */
+.quest-review-card {
+    transition:
+        opacity 1.2s ease,
+        transform 1.5s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 1.3s ease;
+    will-change: transform, opacity, filter;
+}
+
+/* Settle the paper layers into their original positions */
+.quest-review-card::before,
+.quest-review-card::after {
+    transition:
+        transform 1.7s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.75s ease;
+}
+
+.quest-review-section.is-visible {
+    background-size: 100% 100%;
+}
+
+.quest-review-section.is-visible .quest-review-card {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+}
+
+/* Reveal the paper layers */
+.quest-review-section.is-visible .quest-review-card::before {
+    transform: translate(0, 0) rotate(-2deg);
+    transition-delay: 0.12s;
+}
+
+.quest-review-section.is-visible .quest-review-card::after {
+    transform: translate(0, 0) rotate(3.2deg);
+    transition-delay: 0.22s;
+}
+
+/* Contents appear in a cinematic sequence */
+.quest-review-card > .quest-quote-icon,
+.quest-review-card > .quest-review-stars,
+.quest-review-card > p,
+.quest-review-card > .quest-review-author {
+    transition:
+        opacity 0.9s ease,
+        transform 1s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.9s ease;
+}
+
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card > .quest-quote-icon,
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card > .quest-review-stars,
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card > p,
+.quest-review-section.reveal-ready:not(.is-visible)
+.quest-review-card > .quest-review-author {
+    opacity: 0;
+    transform: translateY(22px);
+    filter: blur(4px);
+}
+
+.quest-review-section.is-visible .quest-review-card > .quest-quote-icon,
+.quest-review-section.is-visible .quest-review-card > .quest-review-stars,
+.quest-review-section.is-visible .quest-review-card > p,
+.quest-review-section.is-visible .quest-review-card > .quest-review-author {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.quest-review-section.is-visible .quest-review-card > .quest-quote-icon {
+    transition-delay: 0.45s;
+}
+
+.quest-review-section.is-visible .quest-review-card > .quest-review-stars {
+    transition-delay: 0.58s;
+}
+
+.quest-review-section.is-visible .quest-review-card > p {
+    transition-delay: 0.72s;
+}
+
+.quest-review-section.is-visible .quest-review-card > .quest-review-author {
+    transition-delay: 0.95s;
+}
+
+/* Keep the existing layered hover effect */
+.quest-review-card:hover::before {
+    transform: translate(12px, -10px) rotate(-1deg);
+}
+
+.quest-review-card:hover::after {
+    transform: translate(5px, -4px) rotate(2deg);
+}
+
+.quest-review-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .quest-review-section,
+    .quest-review-card,
+    .quest-review-card::before,
+    .quest-review-card::after,
+    .quest-review-card > .quest-quote-icon,
+    .quest-review-card > .quest-review-stars,
+    .quest-review-card > p,
+    .quest-review-card > .quest-review-author {
+        transition: none !important;
+        animation: none !important;
+        filter: none !important;
+    }
+}
+
+
+/* ---------------- connect -------------- */
+/* Initial animation state */
+.connect .subhdr,
+.connect .connect_dtls h2,
+.connect .connect_dtls p,
+.connect .mail_connect {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Animate section when visible */
+.connect.text-visible .subhdr,
+.connect.text-visible .connect_dtls h2,
+.connect.text-visible .connect_dtls p,
+.connect.text-visible .mail_connect {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation timing */
+.connect.text-visible .subhdr {
+    transition-delay: 0.1s;
+}
+
+.connect.text-visible .connect_dtls h2 {
+    transition-delay: 0.35s;
+}
+
+.connect.text-visible .connect_dtls p {
+    transition-delay: 0.6s;
+}
+
+.connect.text-visible .mail_connect {
+    transition-delay: 0.85s;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .connect .subhdr,
+    .connect .connect_dtls h2,
+    .connect .connect_dtls p,
+    .connect .mail_connect {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+.advntr_ppls.mbl_vrsn {
+    display: none;
+}
+.quest-quote-icon img {
+    width: 97px;
+}
+.navbar-collapse{
+    gap: 15px;
 }
